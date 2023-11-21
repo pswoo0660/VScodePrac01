@@ -10,17 +10,32 @@ enum PlayerType
     PT_Mage = 3,
 };
 
+enum MonsterType
+{
+    MT_Slime = 1,
+    MT_Orc = 2,
+    MT_Skeleton = 3,
+};
+
 int playerType;
 int hp;
 int attack;
 int defence;
 
+int monsterType;
+int monsterHp;
+int monsterAttack;
+int monsterDefence;
+
 void EnterLobby();
 void SelectPlayer();
 void EnterField();
+void CreateRandomMonster();
 
 int main()
 {
+    srand(time(0));
+
     EnterLobby();
 
     return 0;
@@ -102,5 +117,34 @@ void EnterField()
         cout << "-------------------" << endl;
 
         cout << "[Player] HP : " << hp << " / ATT : " << attack << " / DEF : " << defence << endl;
+
+        CreateRandomMonster();
+    }
+}
+
+void CreateRandomMonster()
+{
+    monsterType = 1 + (rand() % 3);
+
+    switch (monsterType)
+    {
+    case MT_Slime:
+        cout << "슬라임 생성 중..... ! (HP: 15 / ATT: 5 / DEF : 0)" << endl;
+        monsterHp = 15;
+        monsterAttack = 5;
+        monsterDefence = 0;
+        break;
+    case MT_Orc:
+        cout << "오크 생성 중..... ! (HP: 40 / ATT: 10 / DEF : 3)" << endl;
+        monsterHp = 40;
+        monsterAttack = 10;
+        monsterDefence = 3;
+        break;
+    case MT_Skeleton:
+        cout << "해골 생성 중..... ! (HP: 80 / ATT: 15 / DEF : 5)" << endl;
+        monsterHp = 80;
+        monsterAttack = 15;
+        monsterDefence = 5;
+        break;
     }
 }
