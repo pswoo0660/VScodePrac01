@@ -57,36 +57,39 @@ void EnterLobby()
 
 void SelectPlayer()
 {
-    cout << "--------------------------" << endl;
-    cout << "직업을 골라주세요!" << endl;
-    cout << "(1) 기사 (2) 궁수 (3) 법사" << endl;
-    cout << ">";
+    while (true)
+    {
+        cout << "--------------------------" << endl;
+        cout << "직업을 골라주세요!" << endl;
+        cout << "(1) 기사 (2) 궁수 (3) 법사" << endl;
+        cout << ">";
 
-    cin >> playerType;
-    
-    if (playerType == PT_Knight)
-    {
-        cout << "기사 생성 중..... !" << endl;
-        hp = 150;
-        attack = 10;
-        defence = 5;
-        break;
-    }
-    else if (playerType == PT_Archer)
-    {
-        cout << "궁수 생성 중..... !" << endl;
-        hp = 100;
-        attack = 15;
-        defence = 3;
-        break;
-    }
-    else if (playerType == PT_Mage)
-    {
-        cout << "법사 생성 중..... !" << endl;
-        hp = 80;
-        attack = 25;
-        defence = 0;
-        break;
+        cin >> playerType;
+        
+        if (playerType == PT_Knight)
+        {
+            cout << "기사 생성 중..... !" << endl;
+            hp = 150;
+            attack = 10;
+            defence = 5;
+            break;
+        }
+        else if (playerType == PT_Archer)
+        {
+            cout << "궁수 생성 중..... !" << endl;
+            hp = 100;
+            attack = 15;
+            defence = 3;
+            break;
+        }
+        else if (playerType == PT_Mage)
+        {
+            cout << "법사 생성 중..... !" << endl;
+            hp = 80;
+            attack = 25;
+            defence = 0;
+            break;
+        }
     }
 }
 
